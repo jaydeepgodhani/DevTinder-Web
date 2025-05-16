@@ -1,5 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router'
+import Footer from './Footer'
 import Navbar from './Navbar'
 
 const Body = () => {
@@ -7,6 +8,7 @@ const Body = () => {
     <>
       <Navbar />
       <Outlet />
+      <Footer />
     </>
   )
 }
