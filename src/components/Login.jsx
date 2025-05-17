@@ -8,6 +8,7 @@ import { addUser } from "../utils/userSlice";
 const Login = () => {
   const [emailId, setEmailId] = useState("");
   const [password, setPassword] = useState("");
+  const [err, setErr] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -17,10 +18,10 @@ const Login = () => {
         emailId,
         password,
       }, {withCredentials: true});
-      console.log('res... ', res);
       dispatch(addUser(res.data.user));
       return navigate('/');
     } catch (err) {
+      setErr(err?.response?.data || "something went wrong");
       console.log(err);
     }
   };
@@ -48,6 +49,7 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </fieldset>
+          <p className='text-red-500'>{err}</p>
           <div className="card-actions justify-center pt-5">
             <button className="btn btn-primary" onClick={handleLogin}>Login</button>
           </div>

@@ -4,6 +4,7 @@ import "./App.css";
 import Body from "./components/Body";
 import Feed from "./components/Feed";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
 import Test from "./components/Test";
 import appStore from "./utils/appStore";
 
@@ -17,6 +18,7 @@ function App() {
               <Route path="/" element={<Feed />} />
               <Route path="/login" element={<Login />} />
               <Route path="/test" element={<Test />} />
+              <Route path="/profile" element={<Profile />} />
             </Route>
           </Routes>
         </BrowserRouter>
