@@ -9,14 +9,14 @@ const Feed = () => {
   const feed = useSelector((store) => store?.feed?.data);
   const dispatch = useDispatch();
 
-  console.log('feed... ',feed);
+  console.log("feed... ", feed);
   const getFeed = async () => {
     if (feed) return;
     try {
       const res = await axios.get(BASE_URL + "/feed", {
         withCredentials: true,
       });
-      console.log('res...',res);
+      console.log("res...", res);
 
       dispatch(addFeed(res.data));
     } catch (err) {
@@ -28,12 +28,15 @@ const Feed = () => {
     getFeed();
   }, []);
 
+  if (!feed) return;
+
+  if (feed.length <= 0)
+    return <h1 className="flex justify-center">No new user found !</h1>;
+
   return (
     feed && (
       <div className="flex items-center justify-center my-10">
-        {feed.map(each =>
-          <UserCard user={each} />
-        )}
+        <UserCard user={feed[0]} />
       </div>
     )
   );
