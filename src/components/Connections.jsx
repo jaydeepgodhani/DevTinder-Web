@@ -29,12 +29,14 @@ const Connections = () => {
   }
 
   return (
-    <div className="flex justify-center my-10">
-      {connections && connections.map((conn) => (
-        <div>
-          {conn.firstName} {conn.lastName}
-        </div>
-      ))}
+    <div className="flex justify-center flex-col my-10">
+      <h1 className="text-bold text-white text-3xl mb-5 mx-auto">Connections</h1>
+      {connections &&
+        connections.map((conn) => (
+          <div className="flex m-4 p-4 rounded-lg bg-base-300 w-1/2 mx-auto">
+            {conn.firstName} {conn.lastName}
+          </div>
+        ))}
     </div>
   );
 };
