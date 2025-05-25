@@ -22,7 +22,7 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-sm flex justify-between">
       <div className="flex">
-        <Link to="/" className="btn btn-ghost text-xl">
+        <Link to="/feed" className="btn btn-ghost text-xl">
           daisyUI
         </Link>
       </div>
